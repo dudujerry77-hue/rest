@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Table</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Maison Table home">
+        <span class="brand-mark">M</span>
+        <span>
+          <strong>Maison Table</strong>
+          <small>Fine casual dining</small>
+        </span>
+      </a>
+
+      <nav class="nav-list">
+        <button class="nav-item active" data-page="home" aria-label="Home">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.8 12 3l9 7.8V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+          <span>Home</span>
+        </button>
+        <button class="nav-item" data-page="cart" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6h15l-2 9H8L6.5 6Zm0 0L6 3H3M9 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm9 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>
+          <span>Cart</span>
+          <b id="cartCount" class="nav-badge">0</b>
+        </button>
+        <button class="nav-item" data-page="favorites" aria-label="Favorites">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.8-8-11a4.7 4.7 0 0 1 8-3.3A4.7 4.7 0 0 1 20 10c0 6.2-8 11-8 11Z"/></svg>
+          <span>Favorites</span>
+          <b id="favCount" class="nav-badge">0</b>
+        </button>
+        <button class="nav-item" data-page="profile" aria-label="User Profile and Settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm8 9a8 8 0 0 0-16 0"/></svg>
+          <span>Profile</span>
+        </button>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="home" class="page active">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Curated seasonal plates</p>
+            <h1>Restaurant delivery with a table-service soul.</h1>
+            <p>Order polished bistro favorites, chef signatures, and fresh desserts from a menu designed for beautiful nights in.</p>
+            <div class="hero-actions">
+              <button class="btn primary" data-scroll-menu>Explore Menu</button>
+              <button class="btn ghost" data-page-link="favorites">View Favorites</button>
+            </div>
+          </div>
+        </div>
+
+        <section class="content-section" id="menu">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Popular categories</p>
+              <h2>Choose your mood</h2>
+            </div>
+            <div class="search-wrap">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"/></svg>
+              <input id="searchInput" type="search" placeholder="Search dishes">
+            </div>
+          </div>
+          <div id="categoryList" class="category-list" aria-label="Food categories"></div>
+          <div id="foodGrid" class="food-grid"></div>
+        </section>
+      </section>
+
+      <section id="cart" class="page">
+        <div class="page-header">
+          <p class="eyebrow">Your order</p>
+          <h1>Cart</h1>
+        </div>
+        <div class="cart-layout">
+          <div id="cartItems" class="cart-items"></div>
+          <aside class="order-summary">
+            <h2>Order Summary</h2>
+            <div class="summary-row"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+            <div class="summary-row"><span>Service</span><strong id="serviceFee">$0.00</strong></div>
+            <div class="summary-row"><span>Delivery</span><strong id="deliveryFee">$0.00</strong></div>
+            <div class="summary-total"><span>Total</span><strong id="totalCost">$0.00</strong></div>
+            <button id="checkoutBtn" class="btn primary full">Checkout</button>
+          </aside>
+        </div>
+      </section>
+
+      <section id="favorites" class="page">
+        <div class="page-header">
+          <p class="eyebrow">Saved dishes</p>
+          <h1>Favorites</h1>
+        </div>
+        <div id="favoritesGrid" class="food-grid"></div>
+      </section>
+
+      <section id="profile" class="page">
+        <div class="page-header">
+          <p class="eyebrow">Account</p>
+          <h1>Profile & Settings</h1>
+        </div>
+        <div class="profile-grid">
+          <section class="profile-card">
+            <div class="avatar">JD</div>
+            <div>
+              <h2>Jordan Davis</h2>
+              <p>Premium member</p>
+            </div>
+            <div class="profile-stat"><span>Orders</span><strong>24</strong></div>
+            <div class="profile-stat"><span>Saved</span><strong id="profileFavCount">0</strong></div>
+          </section>
+          <section class="settings-panel">
+            <h2>Useful Settings</h2>
+            <label class="setting-row">
+              <span>
+                <strong>Contactless delivery</strong>
+                <small>Leave orders at the door</small>
+              </span>
+              <input type="checkbox" data-setting="contactless">
+            </label>
+            <label class="setting-row">
+              <span>
+                <strong>Order updates</strong>
+                <small>Receive status notifications</small>
+              </span>
+              <input type="checkbox" data-setting="updates">
+            </label>
+            <label class="setting-row">
+              <span>
+                <strong>Dark ambiance</strong>
+                <small>Use a deeper restaurant theme</small>
+              </span>
+              <input type="checkbox" data-setting="darkMode">
+            </label>
+          </section>
+          <section class="settings-panel">
+            <h2>Delivery Details</h2>
+            <label class="input-row">
+              <span>Full name</span>
+              <input type="text" data-profile="name" value="Jordan Davis">
+            </label>
+            <label class="input-row">
+              <span>Phone</span>
+              <input type="tel" data-profile="phone" value="+1 555 0187">
+            </label>
+            <label class="input-row">
+              <span>Address</span>
+              <textarea data-profile="address">84 Market Street, Suite 7</textarea>
+            </label>
+            <button id="saveProfileBtn" class="btn primary">Save Profile</button>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
